@@ -1,0 +1,52 @@
+h1 {
+    font-family: 'Arvo', serif;
+    font-size: 55px;
+    font-weight: 450;
+    letter-spacing: 2px;
+    color: rgb(56, 114, 214);
+}
+
+#weatherInfo {
+    display: none;
+}
+
+.navbar {
+    height: 150px;
+}
+
+#cityName,
+#uvColor,
+li {
+    color: #2b323f
+}
+
+#results,
+#cityName,
+.card {
+    background-color: #9ddef7;
+}
+
+#results {
+    height: 100vh;
+}
+
+#fiveDay .card {
+    border: 1.5px solid whitesmoke
+}
+
+#searchHist li {
+    background-color: #7bb3ac;
+}
+
+p {
+    color: #d88339;
+}
+
+h1, h2, h3, h4, h5 {
+    color: rgb(56, 114, 214);
+}
+
+body {
+    font-family: 'Arvo', serif;
+    background-color: #848484;
+}

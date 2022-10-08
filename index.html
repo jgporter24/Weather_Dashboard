@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,10 +8,12 @@
     <title>Weather Dashboard</title>
 
     <!--Link to bootstrap google font and style sheet-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" 
-    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Arvo&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="assets/style.css">
 </head>
 
@@ -22,8 +25,61 @@
             </div>
         </div>
 
+        <!--Search section and bar-->
+
+        <div class="row">
+            <div class="col-3 bg-light pb-2 pt-3" id="results">
+                <div class="row">
+                    <div class="col-12">
+                        <h4>Search for a City</h4>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="input-group">
+                            <input class="form-control" type="text" id="cityName" placeholder="Enter City Name"><button
+                                type="button" id="searchBtn" class="btn btn-primary"><i
+                                    class="fas fa-search"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-12">
+
+                        <ul id="searccHist" class="list-group">
+                            <!--list goes here li class="list-group-item"-->
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+
+            <div id="weatherInfo" class="col-9 pb-4 pt-4">
+                <div class="row pb-3 mr-2 ml-2">
+                    <div id="cityInfo" class="col-12 border rounded px-3 py-3"></div>
+                    
+                    <!--display city info here-->
+                </div>
+            </div>
+
+            
+        </div>
 
     </div>
-    
+
+    <!--Linking bootstrap, fonts, jquery, moment, and js-->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="assets/scripts.js"></script>
+
 </body>
+
 </html>
