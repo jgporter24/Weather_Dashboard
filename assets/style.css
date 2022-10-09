@@ -11,19 +11,19 @@ h1 {
 }
 
 .navbar {
-    height: 150px;
+    height: 150px!important;
 }
 
 #cityName,
 #uvColor,
 li {
-    color: #2b323f
+    color: #13495d!important;
 }
 
 #results,
 #cityName,
 .card {
-    background-color: #9ddef7;
+    background-color: #769aa8!important;
 }
 
 #results {
@@ -31,19 +31,20 @@ li {
 }
 
 #fiveDay .card {
-    border: 1.5px solid whitesmoke
+    border: 1.5px solid whitesmoke!important;
 }
 
 #searchHist li {
     background-color: #7bb3ac;
+    color:rgb(56, 114, 214)!important;
 }
 
 p {
-    color: #d88339;
+    color: #d0d839;
 }
 
 h1, h2, h3, h4, h5 {
-    color: rgb(56, 114, 214);
+    color: rgb(139, 236, 248);
 }
 
 body {
