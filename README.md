@@ -7,7 +7,7 @@ This weather dashboard allows for a user to search a city and view the current w
 
 ## Example
 
-Below is a sample of the what the site looks like and how it operates. You can also go to the site by clicking [here] (https://jgporter24.github.io/Weather_Dashboard/)
+Below is a sample of the what the site looks like and how it operates. You can also go to the site by clicking [here](https://jgporter24.github.io/Weather_Dashboard/)
 
 ![](assets/images/Weather_Dashboard.gif)
 
