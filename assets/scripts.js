@@ -1,4 +1,4 @@
-var apiKey = "d1e2d0763204896fd894698f5c6e27ee";
+var apiKey = "761ee75e915dd55a7442b7e5f4f82115";
 var today = moment().format('L');
 var searchHistoryList = [];
 
@@ -32,42 +32,11 @@ function currentCondition(city) {
 
         $("#cityInfo").append(currentCity);
 
-        // UV index
+    
         var lat = cityWeatherResponse.coord.lat;
         var lon = cityWeatherResponse.coord.lon;
-        var uviQueryURL = `https://api.openweathermap.org/data/2.5/uvi?lat=${lat}&lon=${lon}&appid=${apiKey}`;
-
-        $.ajax({
-            url: uviQueryURL,
-            method: "GET"
-        }).then(function(uviResponse) {
-            console.log(uviResponse);
-
-            var uvIndex = uviResponse.value;
-            var uvIndexP = $(`
-                <p>UV Index: 
-                    <span id="uvColor" class="px-2 py-2 rounded">${uvIndex}</span>
-                </p>
-            `);
-
-            $("#cityInfo").append(uvIndexP);
-
+        
             futureCondition(lat, lon);
-
-            // UV Index
-            // 0-2 green, 3-5 yellow, 6-7 orange, 8-10 red, 11+violet
-            if (uvIndex >= 0 && uvIndex <= 2) {
-                $("#uvColor").css("background-color", "#3EA72D").css("color", "white");
-            } else if (uvIndex >= 3 && uvIndex <= 5) {
-                $("#uvColor").css("background-color", "#FFF300");
-            } else if (uvIndex >= 6 && uvIndex <= 7) {
-                $("#uvColor").css("background-color", "#F18B00");
-            } else if (uvIndex >= 8 && uvIndex <= 10) {
-                $("#uvColor").css("background-color", "#E53210").css("color", "white");
-            } else {
-                $("#uvColor").css("background-color", "#B567A4").css("color", "white"); 
-            };  
-        });
     });
 }
 
@@ -75,7 +44,7 @@ function currentCondition(city) {
 function futureCondition(lat, lon) {
 
     // 5 day forecast
-    var futureURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&exclude=current,minutely,hourly,alerts&appid=${apiKey}`;
+    var futureURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=imperial`;
 
     $.ajax({
         url: futureURL,
@@ -86,14 +55,15 @@ function futureCondition(lat, lon) {
         
         for (let i = 1; i < 6; i++) {
             var cityInfo = {
-                date: futureResponse.daily[i].dt,
-                icon: futureResponse.daily[i].weather[0].icon,
-                temp: futureResponse.daily[i].temp.day,
-                humidity: futureResponse.daily[i].humidity
+                date: futureResponse.list[i].dt,
+                icon: futureResponse.list[i].weather[0].icon,
+                temp: futureResponse.list[i].main.temp,
+                humidity: futureResponse.list[i].main.humidity,
+                wind: futureResponse.list[i].wind.speed,
             };
 
             var currDate = moment.unix(cityInfo.date).format("MM/DD/YYYY");
-            var iconURL = `<img src="https://openweathermap.org/img/w/${cityInfo.icon}.png" alt="${futureResponse.daily[i].weather[0].main}" />`;
+            var iconURL = `<img src="https://openweathermap.org/img/w/${cityInfo.icon}.png" alt="${futureResponse.list[i].weather[0].main}" />`;
 
             // Displays city, date, and weather info
             var futureCard = $(`
@@ -104,6 +74,7 @@ function futureCondition(lat, lon) {
                             <p>${iconURL}</p>
                             <p>Temp: ${cityInfo.temp} °F</p>
                             <p>Humidity: ${cityInfo.humidity}\%</p>
+                            <p>Wind: ${cityInfo.wind}</p>
                         </div>
                     </div>
                 <div>
