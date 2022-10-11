@@ -44,7 +44,7 @@ function currentCondition(city) {
 function futureCondition(lat, lon) {
 
     // 5 day forecast
-    var futureURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=imperial`;
+    var futureURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=imperial&cnt=6`;
 
     $.ajax({
         url: futureURL,
@@ -62,10 +62,10 @@ function futureCondition(lat, lon) {
                 wind: futureResponse.list[i].wind.speed,
             };
 
-            var currDate = moment.unix(cityInfo.date).format("MM/DD/YYYY");
+            var currDate = moment.unix(cityInfo.date).format("hh:mm a");
             var iconURL = `<img src="https://openweathermap.org/img/w/${cityInfo.icon}.png" alt="${futureResponse.list[i].weather[0].main}" />`;
 
-            // Displays city, date, and weather info
+            // Displays date, and weather info
             var futureCard = $(`
                 <div class="pl-3">
                     <div class="card pl-3 pt-3 mb-3 bg-primary text-light" style="width: 12rem;>
@@ -74,7 +74,7 @@ function futureCondition(lat, lon) {
                             <p>${iconURL}</p>
                             <p>Temp: ${cityInfo.temp} °F</p>
                             <p>Humidity: ${cityInfo.humidity}\%</p>
-                            <p>Wind: ${cityInfo.wind}</p>
+                            <p>Wind: ${cityInfo.wind} MPH</p>
                         </div>
                     </div>
                 <div>
